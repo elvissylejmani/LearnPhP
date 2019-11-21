@@ -1,7 +1,7 @@
 <?php
 class Connection
 {
-    function Make($config)
+    public static function Make($config)
     {
         try {
             return mysqli_connect($config['host'],
