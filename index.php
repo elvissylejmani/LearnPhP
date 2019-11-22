@@ -11,8 +11,8 @@ if (!$conn) {
   $result_set = mysqli_query($conn, "CALL SelectHeader_php()");
   $row=mysqli_fetch_array($result_set, MYSQLI_ASSOC);
   extract($row);
-  ?>
-    <div class="ftco-cover-1 overlay" style="background-image: url('images/hero_2.jpg')">
+  //<?php echo '<div class="bg-image bg-parallax overlay"  style="background-image: url(data:image/jpg;base64,'. base64_encode($pic) .')"></div>'?>
+  <?php echo '<div class="ftco-cover-1 overlay" style="background-image: url(data:image/jpg;base64,'. base64_encode($Picture) .')"> '?>
         <div class="container">
           <div class="row align-items-center justify-content-center">
             <div class="col-lg-6 text-center">
