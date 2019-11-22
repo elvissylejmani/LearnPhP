@@ -1,14 +1,23 @@
 <?php
 require 'Header.php';
-
+require 'Core/Boot.php';
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
 ?>
+
     <div class="ftco-blocks-cover-1">
-      <div class="ftco-cover-1 overlay" style="background-image: url('images/hero_2.jpg')">
+  <?php 
+  $result_set = mysqli_query($conn, "CALL SelectHeader_php()");
+  $row=mysqli_fetch_array($result_set, MYSQLI_ASSOC);
+  extract($row);
+  ?>
+    <div class="ftco-cover-1 overlay" style="background-image: url('images/hero_2.jpg')">
         <div class="container">
           <div class="row align-items-center justify-content-center">
             <div class="col-lg-6 text-center">
-              <h1>We can make it together</h1>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <h1><?= $Title ?></h1>
+              <p><?= $Description ?></p>
             </div>
           </div>
         </div>
