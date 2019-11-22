@@ -1,6 +1,6 @@
 <?php 
 require 'ConnectionFun.php';
 
-$connect = require '../connect.php';
+$connect = require '/xampp/htdocs/LearnPhP/connect.php';
 
-Connection::Make($connect);
+$conn = Connection::Make($connect);
