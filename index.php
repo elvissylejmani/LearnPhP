@@ -1,5 +1,6 @@
 <?php
 require 'Core/Boot.php';
+$activePage = basename($_SERVER['PHP_SELF']);
 ?>
 
 <!DOCTYPE HTML>
@@ -53,15 +54,15 @@ require 'Core/Boot.php';
 					<nav id="nav">
 						<ul>
 						<?php
-							$result = mysqli_query($conn,"SELECT * FROM menu_php");
-							while($row = mysqli_fetch_array($result))
-							{
-							extract($row);
-							
-							?>
-							<li class="active"><a href="index.html">Homepage</a></li>
-							<li><a href="onecolumn.html">No Sidebar</a></li>
-							<?php } ?>
+						mysqli_free_result($result);  
+						mysqli_next_result($conn);  
+								$result = mysqli_query($conn,"CALL Menu_php()");
+								while($row=mysqli_fetch_array($result, MYSQLI_ASSOC))
+								{
+								extract($row);
+						?> 
+							<li class="<?php if($activePage == $Menu_Link) { echo"active"; } else {echo"";} ?>"><a href="<?= $Menu_Link ?>"><?= $Menu_Name ?></a></li>
+									<?php } ?>
 						</ul>
 					</nav>
 				</div>
