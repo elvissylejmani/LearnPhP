@@ -1,3 +1,7 @@
+<?php
+require 'Core/Boot.php';
+?>
+
 <!DOCTYPE HTML>
 <!--
 	Synchronous by TEMPLATED
@@ -24,28 +28,43 @@
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 	</head>
 	<body class="homepage">
+		
 		<div id="wrapper">
 			
 			<!-- Header -->
-			<div id="header">
+			<?php
+							$result = mysqli_query($conn,"CALL SelectHeader_php()");
+							$row=mysqli_fetch_array($result, MYSQLI_ASSOC);
+							extract($row);
+							
+							?>
+			<?= '<div id="header" style="background: url(data:image/jpg;base64,'.base64_encode($Picture) .') no-repeat center; background-size: cover;">'?>
+			<div id="">
 				<div class="container"> 
-					
+					<!--	< ? php echo '<div class="bg-image bg-parallax overlay"  style="background-image: url(data:image/jpg;base64,'. base64_encode($pic) .')"></div>'?> 
 					<!-- Logo -->
+			
 					<div id="logo">
-						<h1><a href="#">Synchronous</a></h1>
-						<span>Design by TEMPLATED</span>
+						<h1><a href="#"><?= $Title ?></a></h1>
+						<span><?= $Description ?></span>
 					</div>
 					
 					<!-- Nav -->
 					<nav id="nav">
 						<ul>
+						<?php
+							$result = mysqli_query($conn,"SELECT * FROM menu_php");
+							while($row = mysqli_fetch_array($result))
+							{
+							extract($row);
+							
+							?>
 							<li class="active"><a href="index.html">Homepage</a></li>
-							<li><a href="threecolumn.html">Three Column</a></li>
-							<li><a href="twocolumn1.html">Left Sidebar</a></li>
-							<li><a href="twocolumn2.html">Right Sidebar</a></li>
 							<li><a href="onecolumn.html">No Sidebar</a></li>
+							<?php } ?>
 						</ul>
 					</nav>
+				</div>
 				</div>
 			</div>
 			<!-- /Header -->
@@ -59,18 +78,21 @@
 									<h2>Sidebar 1</h2>
 								</header>
 								<ul class="style3">
-									<li class="first">
-										<p class="date"><a href="#">Oct <b>03</b></a></p>
-										<p><a href="#">Donec leo, vivamus fermentum nibh in augue praesent urna congue rutrum. </a></p>
-									</li>
+									<?php for ($i=0; $i < 4; $i++) { 
+										?>											
 									<li>
+										<p class="date"><a href="#">Oct <b>03</b></a></p>
+										<p><a href="#">Elvis , vivamus fermentum nibh in augue praesent urna congue rutrum. </a></p>
+									</li>
+									<?php } ?>
+								<!--	<li>
 										<p class="date"><a href="#">Sep <b>30</b></a></p>
 										<p><a href="#">Donec leo, vivamus fermentum nibh in augue praesent urna congue rutrum.</a></p>
 									</li>
 									<li>
 										<p class="date"><a href="#">Sep <b>27</b></a> </p>
 										<p><a href="#">Donec leo, vivamus fermentum nibh in augue praesent urna congue rutrum.</a></p>
-									</li>
+									</li> -->
 								</ul>
 							</section>
 						</div>
