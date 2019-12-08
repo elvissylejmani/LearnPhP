@@ -7,14 +7,31 @@
 						<div class="3u">
 							<section id="sidebar1">
 								<header>
-									<h2>Sidebar 1</h2>
+								<?php 
+								mysqli_free_result($result);  
+								mysqli_next_result($conn);
+									$result = mysqli_query($conn,"CALL sidebar_select()");
+									while($row=mysqli_fetch_array($result, MYSQLI_ASSOC))
+									{
+									extract($row);
+								?>
+									<h2><?= $Sidebar_Title ?></h2>
+									<?php } ?>
 								</header>
 								<ul class="style3">
-									<?php for ($i=0; $i < 4; $i++) { 
+									<?php
+										mysqli_free_result($result);  
+										mysqli_next_result($conn);
+										$result = mysqli_query($conn,"CALL SelectArticle()");
+										while($row=mysqli_fetch_array($result, MYSQLI_ASSOC))
+											{ 
+												extract($row);
+										
+										
 										?>											
 									<li>
-										<p class="date"><a href="#">Oct <b>03</b></a></p>
-										<p><a href="#">Elvis , vivamus fermentum nibh in augue praesent urna congue rutrum. </a></p>
+										<p class="date"><?= $Article_ProgLang ?> </p>
+										<p><a href="<?= $Article_Link ?>"><?= $Article_Title ?></a></p>
 									</li>
 									<?php } ?>
 								<!--	<li>
@@ -33,9 +50,7 @@
 								<header>
 									<h2>Lorem Ipsum Dolor</h2>
 								</header>
-								<p>This is <strong>Synchronous</strong>, a responsive HTML5 site template freebie by <a href="http://templated.co">TEMPLATED</a>. Released for free under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so use it for whatever (personal or commercial) &ndash; just give us credit! Check out more of our stuff at <a href="http://templated.co">our site</a> or follow us on <a href="http://twitter.com/templatedco">Twitter</a>.</p>
-								<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis, ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo.</p>
-								<p>Sed etiam vestibulum velit mollis pretium suscipit, justo nulla blandit libero, in blandit augue justo quis nisl. Fusce mattis viverra elit. Fusce quis tortor. Consectetuer adipiscing elit. Nam pede erat, porta eu, lobortis eget lorem ipsum dolor.</p>
+								<p>PHP (Hypertext Preprocessor më parë njihej si „Personal Home Page Tools“) është gjuhë skripti që ngjan për nga sintaksa me gjuhën C, Perl dhe mund të bashkëveprojë me lloje të ndryshme bazash të dhënash (database) si psh. MySQL,MSSQL etj. për të krijuar faqe Interneti dinamike dhe interaktive. PHP është një program kompjuterik me kod të hapur. PHP është gjuhë që ekzekutohet në server dhe përdoret për programimin e faqeve dinamike. Meqë browseri dhe vete protokolat e internetit njohin kodin HTML,XML edhe PHP përdor këto metoda për shfaqjen e rezultateve. Meqënëse çdo manipulim, çdo operacion që kryhet nga PHP kryhet në server dhe në browser çdo gjë shfaqet si HTML,XML etj. kjo do të thotë se për të punuar në PHP duhet patjetër të kesh të instaluar server e në ketë rast me që kemi të bejm me "Open source" (Kod i hapur) serveri përkatës është APACHE. Apache server është server për sistemet e hapura operative siç është LINUXI, por mund të instalohet edhe në Windows,BSD etj. PHP bashkë me Apache janë ndër veglat më të perdorura për programim të faqeve dinamike në ditët e sotme.</p>
 								<a href="#" class="button">Full Article</a>
 							</section>
 						</div>
