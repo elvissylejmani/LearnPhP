@@ -64,19 +64,25 @@
 						</div>
 						<div class="3u">
 							<section id="sidebard2">
+								<?php
+								mysqli_free_result($result);  
+								mysqli_next_result($conn);
+								$result = mysqli_query($conn,"CALL SelectRightSideBar()");
+								$row=mysqli_fetch_array($result, MYSQLI_ASSOC);
+								extract($row);
+							
+
+								?>
 								<header>
-									<h2>Sidebar 2</h2>
+									<h2><?= $RightSideBar_Title ?></h2>
 								</header>
 								<ul class="style1">
-									<li class="first"><span class="fa fa-check"></span><a href="#">Maecenas luctus lectus at sapien</a></li>
+									<?php 
+										
+									?>
 									<li><span class="fa fa-check"></span><a href="#">Etiam rhoncus volutpat erat</a></li>
-									<li><span class="fa fa-check"></span><a href="#">Donec dictum metus in sapien</a></li>
-									<li><span class="fa fa-check"></span><a href="#">Integer gravida nibh quis urna</a></li>
-									<li><span class="fa fa-check"></span><a href="#">Etiam posuere augue sit amet nisl</a></li>
-									<li><span class="fa fa-check"></span><a href="#">Mauris vulputate dolor nibh</a></li>
-									<li><span class="fa fa-check"></span><a href="#">Nulla luctus eleifend purus</a></li>
+								
 								</ul>
-								<a href="#" class="button">Full Article</a>
 							</section>
 						</div>
 					</div>
