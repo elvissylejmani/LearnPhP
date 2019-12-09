@@ -47,11 +47,19 @@
 						</div>
 						<div class="6u skel-cell-important">
 							<section id="content" >
+								<?php 
+										mysqli_free_result($result);  
+										mysqli_next_result($conn);
+										$result = mysqli_query($conn,"CALL SelectMidArticle()");
+										$row=mysqli_fetch_array($result, MYSQLI_ASSOC);
+										extract($row);
+									
+								?>
 								<header>
-									<h2>Lorem Ipsum Dolor</h2>
+									<h2><?= $Article_Title ?></h2>
 								</header>
-								<p>PHP (Hypertext Preprocessor më parë njihej si „Personal Home Page Tools“) është gjuhë skripti që ngjan për nga sintaksa me gjuhën C, Perl dhe mund të bashkëveprojë me lloje të ndryshme bazash të dhënash (database) si psh. MySQL,MSSQL etj. për të krijuar faqe Interneti dinamike dhe interaktive. PHP është një program kompjuterik me kod të hapur. PHP është gjuhë që ekzekutohet në server dhe përdoret për programimin e faqeve dinamike. Meqë browseri dhe vete protokolat e internetit njohin kodin HTML,XML edhe PHP përdor këto metoda për shfaqjen e rezultateve. Meqënëse çdo manipulim, çdo operacion që kryhet nga PHP kryhet në server dhe në browser çdo gjë shfaqet si HTML,XML etj. kjo do të thotë se për të punuar në PHP duhet patjetër të kesh të instaluar server e në ketë rast me që kemi të bejm me "Open source" (Kod i hapur) serveri përkatës është APACHE. Apache server është server për sistemet e hapura operative siç është LINUXI, por mund të instalohet edhe në Windows,BSD etj. PHP bashkë me Apache janë ndër veglat më të perdorura për programim të faqeve dinamike në ditët e sotme.</p>
-								<a href="#" class="button">Full Article</a>
+								<p><?= utf8_encode($Article_Content) ?></p>
+								<a href="<?= $Article_Link ?>" class="button"><?= $Article_Button ?></a>
 							</section>
 						</div>
 						<div class="3u">
