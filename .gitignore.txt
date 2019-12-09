@@ -1,2 +1,5 @@
-test.html
 connect.php
+uploads/
+uploads.php
+test.html
+.pdf
