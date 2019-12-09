@@ -11,6 +11,7 @@ class Connection
          } catch (mysqli_sql_exception $e) {
             throw $e;
          }
+         
     }
 }
 
