@@ -105,17 +105,35 @@
 						<div class="3u">
 							<section id="box1">
 								<header>
-									<h2>Nulla facilisi</h2>
+								<?php
+								mysqli_free_result($result);  
+								mysqli_next_result($conn);
+								$result = mysqli_query($conn,"CALL selectfootersidebartitle()");
+								$row=mysqli_fetch_array($result, MYSQLI_ASSOC);
+								extract($row);
+							
+
+								?>
+									<h2> <?= $Title ?></h2>
 								</header>
 								<ul class="style3">
+								<?php
+										mysqli_free_result($result);  
+										mysqli_next_result($conn);
+										$result = mysqli_query($conn,"CALL selectvideos()");
+										if($result != null)
+										while($row=mysqli_fetch_array($result, MYSQLI_ASSOC))
+											{ 
+												extract($row);
+										
+										
+										?>	
 									<li class="first">
-										<p class="date"><a href="#">10.03.2012</a></p>
-										<p><a href="#">Vestibulum sem magna, elementum ut, vestibulum facilisis. Nulla facilisi. Cum sociis natoque penatibus.</a></p>
+										<p class="date"><a href="#"><?= $YoutubeChannel ?></a></p>
+										<p><a href="<?= $YoutubeVideoLink ?>"><?= $YoutubeVideoTitle ?></a></p>
 									</li>
-									<li>
-										<p class="date"><a href="#">10.03.2012</a></p>
-										<p><a href="#">Pellentesque erat erat, tincidunt in, eleifend, malesuada bibendum. Suspendisse sit amet  in eros bibendum condimentum. </a> </p>
-									</li>
+											<?php } ?>
+									
 								</ul>
 							</section>
 						</div>
