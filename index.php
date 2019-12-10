@@ -154,14 +154,31 @@
 						<div class="3u">
 							<section id="box3">
 								<header>
-									<h2>Gravida ipsum</h2>
+								<?php
+								mysqli_free_result($result);  
+								mysqli_next_result($conn);
+								$result = mysqli_query($conn,"CALL selectfootersidebar()");
+								$row=mysqli_fetch_array($result, MYSQLI_ASSOC);
+								extract($row);
+							
+
+								?>
+									<h2><?= $Title ?></h2>
 								</header>
 								<ul class="style1">
-									<li class="first"><a href="#">Pellentesque quis elit non lectus eleifend purus condimentum.</a></li>
-									<li><a href="#">Lorem ipsum dolort, consectetuer adipiscing dictum metus sapien.</a></li>
-									<li><a href="#">Phasellus nec dictum metus in sapien pellentesque congue.</a></li>
-									<li><a href="#">Cras vitae metus aliquam risus dictum metus in sapien pharetra.</a></li>
-									<li><a href="#">Duis non dictum metus in sapien ante in metus commodo euismod lobortis.</a></li>
+								<?php
+										mysqli_free_result($result);  
+										mysqli_next_result($conn);
+										$result = mysqli_query($conn,"CALL selectcourses()");
+										if($result != null)
+										while($row=mysqli_fetch_array($result, MYSQLI_ASSOC))
+											{ 
+												extract($row);
+										
+										
+										?>
+									<li><a href="<?= $CourseLink ?>"><?= $CourseTitle ?></a></li>
+											<?php } ?>				
 								</ul>
 							</section>
 						</div>
