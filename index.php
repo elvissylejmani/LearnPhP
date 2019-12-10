@@ -139,11 +139,16 @@
 						</div>
 						<div class="6u">
 							<section id="box2">
-								<header>
-									<h2>Donec dictum metus</h2>
-								</header>
-								<div> <a href="#" class="image full"><img src="images/pics02.jpg" alt=""></a> </div>
-								<p>Nulla enim eros, porttitor eu, tempus id, varius non, nibh. Duis enim nulla, luctus eu, dapibus lacinia, venenatis id, quam. Vestibulum imperdiet, magna nec eleifend rutrum, nunc lectus vestibulum velit, euismod lacinia quam nisl id lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo nulla blandit libero, in blandit augue justo quis nisl.</p>
+							<?php
+								mysqli_free_result($result);  
+								mysqli_next_result($conn);
+								$result = mysqli_query($conn,"CALL selectfooterpicture()");
+								$row=mysqli_fetch_array($result, MYSQLI_ASSOC);
+								extract($row);
+							
+
+								?>
+								<div> <a href="" class="image full"><img src="data:image/jpg;base64,<?= base64_encode($Pic) ?>" alt=""></a> </div>
 							</section>
 						</div>
 						<div class="3u">
