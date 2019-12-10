@@ -77,11 +77,19 @@
 									<h2><?= $RightSideBar_Title ?></h2>
 								</header>
 								<ul class="style1">
-									<?php 
+								<?php
+										mysqli_free_result($result);  
+										mysqli_next_result($conn);
+										$result = mysqli_query($conn,"CALL selectfile()");
+										if($result != null)
+										while($row=mysqli_fetch_array($result, MYSQLI_ASSOC))
+											{ 
+												extract($row);
 										
-									?>
-									<li><span class="fa fa-check"></span><a href="#">Etiam rhoncus volutpat erat</a></li>
-								
+										
+										?>	
+									<li><span class="fa fa-check"></span><a href="Core/Uploads.php?file_id=<?=$id?>"><?= $name ?></a></li>
+											<?php } ?>
 								</ul>
 							</section>
 						</div>
