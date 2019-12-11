@@ -174,8 +174,6 @@
 										while($row=mysqli_fetch_array($result, MYSQLI_ASSOC))
 											{ 
 												extract($row);
-										
-										
 										?>
 									<li><a href="<?= $CourseLink ?>"><?= $CourseTitle ?></a></li>
 											<?php } ?>				
