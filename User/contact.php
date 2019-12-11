@@ -12,7 +12,7 @@ require 'header.php';
 						<div class="12u">
 							<section id="content" >
 									<div class="container">  
-											<form id="contact" action="Core/insert.php" method="post">
+											<form id="contact" action="../Core/insert.php" method="post">
 											<?php
 								mysqli_free_result($result);  
 								mysqli_next_result($conn);
