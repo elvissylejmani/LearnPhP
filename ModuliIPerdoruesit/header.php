@@ -1,5 +1,5 @@
 <?php
-require 'Core/Boot.php';
+require '../Core/Boot.php';
 $activePage = basename($_SERVER['PHP_SELF']);
 ?>
 
@@ -18,12 +18,12 @@ $activePage = basename($_SERVER['PHP_SELF']);
 		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-panels.min.js"></script>
-		<script src="js/init.js"></script>
+		<script src="../js/skel.min.js"></script>
+		<script src="../js/skel-panels.min.js"></script>
+		<script src="../js/init.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
-			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style1.css" />
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
