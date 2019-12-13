@@ -1,7 +1,5 @@
-<?php
-require 'Core/Boot.php';
-$activePage = basename($_SERVER['PHP_SELF']);
-?>
+<?php require 'Core/Boot.php'; ?>
+<!-- /Header -->
 
 <!DOCTYPE HTML>
 <!--
@@ -27,6 +25,38 @@ $activePage = basename($_SERVER['PHP_SELF']);
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+		<style>
+			
+.newdiv {
+  border-radius: 5px;
+  background-color: #323338;
+  padding: 20px;
+}
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /* background-color: #8A8A8A; */
+  box-sizing: border-box;
+}
+input[type=submit] {
+  width: 100%;
+  background-color: #6B6B6B;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #8A8A8A;
+}
+
+		</style>
 	</head>
 	<body class="homepage">
 		
@@ -42,29 +72,31 @@ $activePage = basename($_SERVER['PHP_SELF']);
 			<?= '<div id="header" style="background: url(data:image/jpg;base64,'.base64_encode($Picture) .') no-repeat center; background-size: cover;">'?>
 			<div id="">
 				<div class="container"> 
-					<!--	< ? php echo '<div class="bg-image bg-parallax overlay"  style="background-image: url(data:image/jpg;base64,'. base64_encode($pic) .')"></div>'?> 
-					<!-- Logo -->
-			
-					<div id="logo">
-						<h1><a href="#"><?= $Title ?></a></h1>
-						<span><?= $Description ?></span>
+					<div class="row">
+						<div class="12u">
+							<section id="content" >
+						    	<div class="container">  
+								<div class="newdiv">
+										<form action="">
+												<h1 style="color:#ccc">Hyrë</h1>
+												<input type="text" id="fname" name="name" placeholder="Emri">
+											    <input type="text" id="fname" name="email" placeholder="Emaili">
+												<input type="submit" name="submit" value="Hyrë">
+										</form>
+							     </div>		
+								</div>
+							</section>
+						</div>
 					</div>
-					
-					<!-- Nav -->
-					<nav id="nav">
-						<ul>
-						<?php
-						mysqli_free_result($result);  
-						mysqli_next_result($conn);
-								$result = mysqli_query($conn,"CALL Menu_php()");
-								while($row=mysqli_fetch_array($result, MYSQLI_ASSOC))
-								{
-								extract($row);
-						?> 
-							<li class="<?php if($activePage == $Menu_Link) { echo"active"; } else {echo"";} ?>"><a href="<?= $Menu_Link ?>"><?= $Menu_Name ?></a></li>
-									<?php } ?>
-						</ul>
-					</nav>
-				</div>
+
+				</div>	
 				</div>
 			</div>
+			<div id="copyright">
+				<div class="container">
+					Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
+				</div>
+			</div>
+</body>
+
+			
