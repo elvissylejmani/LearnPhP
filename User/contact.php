@@ -1,7 +1,10 @@
 <?php
+session_start();
 require 'header.php';
-
-
+if (!empty($_SESSION['InsertedData'])) {
+	echo "<script type='text/javascript'>alert('Mezashi i dergua me suksese');</script>";
+	$_SESSION['InsertedData'] = null;
+}
 ?>
 		<head>
 			<style>
@@ -45,6 +48,10 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: #8A8A8A;
 }
+h1{
+	color: #ccc;
+	text-align: center;
+}
 
 			</style>
 		</head>	
@@ -65,11 +72,11 @@ input[type=submit]:hover {
 							
 
 								?>
-											  <h3><?= $Title ?></h3>
-											  <input type="text" id="fname" name="name" placeholder="Your name..">
-											  <input type="text" id="fname" name="email" placeholder="Your name..">
-											  <textarea>Some text...</textarea>
-											  <input type="submit" name="Content" value="Submit">
+											  <h1><?= $Title ?></h1>
+											  <input type="text" id="fname" name="name" placeholder="Emri">
+											  <input type="text" id="fname" name="email" placeholder="Emaili">
+											  <textarea name="Content" placeholder="Mesazhi"></textarea>
+											  <input type="submit" name="submit" value="Submit">
 											</form>
 										  </div>
 										  </div>
