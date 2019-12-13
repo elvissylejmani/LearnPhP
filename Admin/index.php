@@ -1,4 +1,9 @@
-			<?php require 'header.php'; ?>
+			<?php require 'header.php';
+			
+			
+			
+			
+			?>
 			<!-- /Header -->
 			
 			<div id="page">
