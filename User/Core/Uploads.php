@@ -8,7 +8,7 @@ if (isset($_POST['save'])) { // if save button on the form is clicked
     $filename = $_FILES['myfile']['name'];
 
     // destination of the file on the server
-    $destination = '../User/uploads/' . $filename;
+    $destination = '../uploads/' . $filename;
 
     // get the file extension
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
@@ -40,7 +40,7 @@ if (isset($_GET['file_id'])) {
     $sql = "SELECT * FROM files WHERE id=$id";
     $result = mysqli_query($conn, $sql);
     $file = mysqli_fetch_assoc($result);
-    $filepath = '../User/uploads/' . $file['name'];
+    $filepath = '../uploads/' . $file['name'];
     if (file_exists($filepath)) {
 
         header('Content-Description: File Transfer');
