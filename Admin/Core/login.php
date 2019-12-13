@@ -8,7 +8,7 @@ if (isset($_POST["submit"])) {
   }
   else {
     $username=$_POST['username'];
-    $password=$_POST['password'];
+    $password=md5($_POST['password']);
     $result=mysqli_query($conn,"CALL selectuser('$username','$password')");
     $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
     if (mysqli_num_rows($result) == 1) {
