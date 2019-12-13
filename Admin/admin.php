@@ -17,14 +17,19 @@ if (!empty($_REQUEST['term'])) {
 $term = mysqli_real_escape_string
 ($conn,$_REQUEST['term']);     
 $sql = mysqli_query($conn, "CALL selectadmin('$term')"); 
-while($row = mysqli_fetch_array($sql)) { 		
-		echo "<tr>";
-		echo "<td>".$row['username']."</td>";
-		echo "<td>".$row['password']."</td>";
-		echo "<td><a href=\"edit.php?uid=$row[AID]\">
-		Edit</a> | <a href=\"delete.php?uid=$row[AID]\"
-		onClick=\"return confirm('Are you sure you want to delete?')\">
-		Delete</a></td></tr>";		
+while($row = mysqli_fetch_array($sql)) { 
+    extract($row); ?>	
+    <form action="Core/edit.php" method="post">	
+        <tr>
+        <td><input type="text" name="username" value="<?= $username ?>"></td>
+        <td><input type="text" name="password" value="<?= $password ?>"></td>
+        <input type="hidden" value="<?=$AID ?>" name="UID">
+		<td><input type="submit" name="submit" value="submit">
+		 | <a href="delete.php?uid=$AID"
+		onClick="return confirm('Are you sure you want to delete?')">
+        Delete</a></td></tr>
+        </form>
+        <?php
 	}
 }
 ?>
