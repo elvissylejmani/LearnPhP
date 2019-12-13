@@ -45,8 +45,6 @@ $activePage = basename($_SERVER['PHP_SELF']);
 			<?= '<div id="header" style="background: url(data:image/jpg;base64,'.base64_encode($Picture) .') no-repeat center; background-size: cover;">'?>
 			<div id="">
 				<div class="container"> 
-					<!--	< ? php echo '<div class="bg-image bg-parallax overlay"  style="background-image: url(data:image/jpg;base64,'. base64_encode($pic) .')"></div>'?> 
-					<!-- Logo -->
 			
 					<div id="logo">
 						<h1><a href="#"><?= $Title ?></a></h1>

@@ -7,7 +7,6 @@
 							<section id="box1">
 								<header>
 								<?php
-								mysqli_free_result($result);  
 								mysqli_next_result($conn);
 								$result = mysqli_query($conn,"CALL selectfootersidebartitle()");
 								$row=mysqli_fetch_array($result, MYSQLI_ASSOC);
