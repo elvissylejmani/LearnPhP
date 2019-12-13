@@ -1,10 +1,14 @@
 <?php require 'header.php'; ?>
-
+<div class="row">
+						<div class="12u">
+							<section id="content" >
+                                <div class="container" style="margin-bottom: 2em">
 <form action="" method="post">  
 Search username : <input type="text" name="term" /> 
 <input type="submit" value="Search" />  
 </form> 
-<table width='80%' border=0>
+</div>
+<table width='100%' border=0>
 	<tr bgcolor='#CCCCCC'>
 		<td>username</td>
 		<td>password</td>
@@ -35,6 +39,8 @@ while($row = mysqli_fetch_array($sql)) {
 ?>
 	</table>
 
-
+                            </section>
+                        </div>
+</div>
 
 <?php include 'footer.php'; ?>
