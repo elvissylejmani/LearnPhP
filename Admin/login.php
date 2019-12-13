@@ -1,4 +1,9 @@
-<?php require 'Core/Boot.php'; ?>
+<?php require 'Core/Boot.php';
+	session_start();
+	if (isset($_SESSION['username'])) 
+	header('Location: index.php');
+
+?>
 <!-- /Header -->
 
 <!DOCTYPE HTML>
@@ -33,6 +38,16 @@
   padding: 20px;
 }
 input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /* background-color: #8A8A8A; */
+  box-sizing: border-box;
+}
+input[type=password], select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -77,11 +92,14 @@ input[type=submit]:hover {
 							<section id="content" >
 						    	<div class="container">  
 								<div class="newdiv">
-										<form action="">
+										<form action="Core/login.php" method="POST">
 												<h1 style="color:#ccc">Hyrë</h1>
-												<input type="text" id="fname" name="name" placeholder="Emri">
-											    <input type="text" id="fname" name="email" placeholder="Emaili">
+												<input type="text" id="fname" name="username" placeholder="Emri">
+											    <input type="password" id="fname" name="password" placeholder="Fjalëkalimi">
 												<input type="submit" name="submit" value="Hyrë">
+												<?php if ($_SESSION['IncorrectPassword'] == true) {
+													echo "Ky email apo password nuk egziston";
+												} ?>
 										</form>
 							     </div>		
 								</div>
