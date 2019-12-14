@@ -1,5 +1,4 @@
 <?php
-session_start();
 require 'header.php';
 if (!empty($_SESSION['InsertedData'])) {
 	echo "<script type='text/javascript'>alert('Mezashi i dergua me suksese');</script>";
