@@ -97,7 +97,7 @@ input[type=submit]:hover {
 												<input type="text" id="fname" name="username" placeholder="Emri">
 											    <input type="password" id="fname" name="password" placeholder="Fjalëkalimi">
 												<input type="submit" name="submit" value="Hyrë">
-												<?php if ($_SESSION['IncorrectPassword'] == true) {
+												<?php if (!empty($_SESSION['IncorrectPassword'])) {
 													echo "Ky email apo password nuk egziston";
 												} ?>
 										</form>
