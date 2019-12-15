@@ -11,6 +11,14 @@ if (isset($_POST['submit'])) {
 	$_SESSION['InsertedData'] = true ;
 	header("Location: ../contact.php");
 }
+elseif (isset($_POST['submitA'])) {
+	$name = $_POST['name'];
+	$password = MD5($_POST['password']);
+	echo $name;
+	echo $password;
+	mysqli_query($conn,"CALL insertadmin('$name','$password')");
+
+}
 
 
 ?>

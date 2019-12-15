@@ -1,4 +1,50 @@
 <?php require 'header.php'; ?>
+<head>
+    <style>
+    input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /* background-color: #8A8A8A; */
+  box-sizing: border-box;
+}
+input[type=submit] {
+  width: 50%;
+  background-color: #6B6B6B;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 25%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#del {
+    width: 50%;
+  background-color: #6B6B6B;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+    </style>
+</head>
+<div class="row">
+<div class="12u">
+<section id="content" >
+    <h1 style="font-size: 4em; text-align:center">Inserto Admin</h1>
+    <form action="Core/insert.php" method="post">
+    <input type="text" name="name">
+    <input type="text" name="password">
+    <input type="submit" name="submitA" value="inserto">
+    </form>
+</section>
+</div>
+</div>
 <div class="row">
 						<div class="12u">
 							<section id="content" >
@@ -13,7 +59,7 @@ Search username : <input type="text" name="term" />
 		<td>username</td>
 		<td>password</td>
 		<td>Update</td>
-	</tr> 
+	</tr>
 <?php
 if (!empty($_REQUEST['term'])) {
     mysqli_free_result($result);  
@@ -21,17 +67,17 @@ if (!empty($_REQUEST['term'])) {
 $term = mysqli_real_escape_string
 ($conn,$_REQUEST['term']);     
 $sql = mysqli_query($conn, "CALL selectadmin('$term')"); 
-while($row = mysqli_fetch_array($sql)) { 
+while($row = mysqli_fetch_array($sql)) {
     extract($row); ?>	
     <form action="Core/edit.php" method="post">	
         <tr>
         <td><input type="text" name="username" value="<?= $username ?>"></td>
         <td><input type="text" name="password" value="<?= $password ?>"></td>
         <input type="hidden" value="<?=$AID ?>" name="UID">
-		<td><input type="submit" name="submit" value="submit">
-		 | <a href="delete.php?uid=$AID"
+		<td><input id="del" type="submit" name="submit" value="Edito">
+		 | <a id="del" href="delete.php?uid=$AID"
 		onClick="return confirm('Are you sure you want to delete?')">
-        Delete</a></td></tr>
+        Fshi</a></td></tr>
         </form>
         <?php
 	}
