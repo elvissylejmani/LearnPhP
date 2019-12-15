@@ -22,7 +22,7 @@ input[type=submit] {
   cursor: pointer;
 }
 #del {
-    width: 50%;
+    width: 40%;
   background-color: #6B6B6B;
   color: white;
   padding: 14px 20px;
@@ -30,6 +30,14 @@ input[type=submit] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  text-align: center;
+}
+@media screen and (max-width: 600px) {
+    #del {
+        padding:13px 23px 13px 2px;
+        text-align: left;
+        text-align: center;
+    }
 }
     </style>
 </head>
@@ -72,12 +80,12 @@ while($row = mysqli_fetch_array($sql)) {
     <form action="Core/edit.php" method="post">	
         <tr>
         <td><input type="text" name="username" value="<?= $username ?>"></td>
-        <td><input type="text" name="password" value="<?= $password ?>"></td>
+        <td><input type="text" name="password" value="<?= $AID ?>"></td>
         <input type="hidden" value="<?=$AID ?>" name="UID">
 		<td><input id="del" type="submit" name="submit" value="Edito">
-		 | <a id="del" href="delete.php?uid=$AID"
+		 | <a id="" href="Core/delete.php?uid=<?= $AID ?>&tname=admin"
 		onClick="return confirm('Are you sure you want to delete?')">
-        Fshi</a></td></tr>
+         <input  id="del" value="Fshi"></a></td></tr>
         </form>
         <?php
 	}

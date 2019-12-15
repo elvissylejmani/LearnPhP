@@ -17,6 +17,7 @@ elseif (isset($_POST['submitA'])) {
 	echo $name;
 	echo $password;
 	mysqli_query($conn,"CALL insertadmin('$name','$password')");
+	header('Location: ../admin.php');
 
 }
 
