@@ -30,12 +30,39 @@ $activePage = basename($_SERVER['PHP_SELF']);
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+		<style>
+			#del {
+    width: 40%;
+  background-color: #8A8A8A;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+@media screen and (max-width: 600px) {
+    #del {
+        padding:13px 23px 13px 2px;
+        text-align: left;
+        text-align: center;
+	}
+	#tableres td{
+		display: block;
+	}
+}
+
+		</style>
 	</head>
 	<body class="homepage">
 		
 		<div id="wrapper">
 			
 			<!-- Header -->
+
+			
+
 			<?php
 							$result = mysqli_query($conn,"CALL SelectHeader_php()");
 							$row=mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -44,7 +71,44 @@ $activePage = basename($_SERVER['PHP_SELF']);
 							?>
 			<?= '<div id="header" style="background: url(data:image/jpg;base64,'.base64_encode($Picture) .') no-repeat center; background-size: cover;">'?>
 			<div id="">
-				<div class="container"> 
+				<div class=""> 
+				<div class="12u">
+							<section id="content" >
+							<div class="" style="margin-bottom: 2em">
+							<table id="tableres" width='100%' border=0>
+	<tr bgcolor='#CCCCCC'>
+		<td>Titulli</td>
+		<td>Nentitulli</td>
+		<td>Foto</td>
+		<td>Modifiko</td>
+	</tr>
+
+	<?php
+	mysqli_next_result($conn);
+	$res = mysqli_query($conn,"CALL selectallheader()");
+	while($row = mysqli_fetch_array($res)){
+		
+	?>
+	
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td><input type="text" value="<?= $row['Title'] ?>"></td>
+	<td> <input type="text" name="" id="" value="<?= $row['Description'] ?>"></td>
+	<td style="width: 50%;"><?= '<img style="width:33%" alt="" src="data:images/jpeg;base64,'.base64_encode($row['Picture']).'"/>'?>
+	<input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
+                <input style="" name="userfile" type="file" style="color:white"; />
+</td>
+<td><input id="del" type="submit" name="submit" value="Edito">
+		 | <a id="" href="Core/delete.php?uid=<?= $AID ?>&tname=admin&ID=AID"
+		onClick="return confirm('Are you sure you want to delete?')">
+         <input  id="del" value="Fshi"></a></td>
+	</tr>
+	<?php } ?>
+
+					</table>
+							</div>
+							</section>
+				</div>
+				</div>
 			
 					<div id="logo">
 						<h1><a href="#"><?= $Title ?></a></h1>
