@@ -83,7 +83,7 @@ while($row = mysqli_fetch_array($sql)) {
         <td><input type="text" name="password" value="<?= $password ?>"></td>
         <input type="hidden" value="<?=$AID ?>" name="UID">
 		<td><input id="del" type="submit" name="submit" value="Edito">
-		 | <a id="" href="Core/delete.php?uid=<?= $AID ?>&tname=admin&ID=AID"
+		 | <a id="" href="Core/delete.php?uid=<?= $AID ?>&tname=admin&ID=AID&url=admin"
 		onClick="return confirm('Are you sure you want to delete?')">
          <input  id="del" value="Fshi"></a></td></tr>
         </form>

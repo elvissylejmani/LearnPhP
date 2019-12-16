@@ -42,6 +42,16 @@ $activePage = basename($_SERVER['PHP_SELF']);
   cursor: pointer;
   text-align: center;
 }
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /* background-color: #8A8A8A; */
+  box-sizing: border-box;
+}
 @media screen and (max-width: 600px) {
     #del {
         padding:13px 23px 13px 2px;
@@ -90,18 +100,21 @@ $activePage = basename($_SERVER['PHP_SELF']);
 		
 	?>
 	
+	<form enctype="multipart/form-data" action="Core/edit.php" method="POST">
 	<tr bgcolor='#6B6B6B' style="width: 100%">
-	<td><input type="text" value="<?= $row['Title'] ?>"></td>
-	<td> <input type="text" name="" id="" value="<?= $row['Description'] ?>"></td>
+	<td><input type="text" name="title" value="<?= $row['Title'] ?>"></td>
+	<td> <input type="text" name="description" id="" value="<?= $row['Description'] ?>"></td>
+	<input type="hidden" value="<?=$row['ID_Header'] ?>" name="UID">
 	<td style="width: 50%;"><?= '<img style="width:33%" alt="" src="data:images/jpeg;base64,'.base64_encode($row['Picture']).'"/>'?>
 	<input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
-                <input style="" name="userfile" type="file" style="color:white"; />
+     <input name="img" type="file" style="color:white"; />
 </td>
-<td><input id="del" type="submit" name="submit" value="Edito">
-		 | <a id="" href="Core/delete.php?uid=<?= $AID ?>&tname=admin&ID=AID"
+<td><input id="del" type="submit" name="submith" value="Edito">
+		 |  <a id="" href="Core/delete.php?uid=<?=$row['ID_Header'] ?>&tname=header_php&ID=ID_header&url=index"
 		onClick="return confirm('Are you sure you want to delete?')">
-         <input  id="del" value="Fshi"></a></td>
-	</tr>
+		 <input  id="del" value="Fshi"></a></td>
+		</tr>
+	</form>
 	<?php } ?>
 
 					</table>
