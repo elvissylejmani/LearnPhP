@@ -20,6 +20,15 @@ elseif (isset($_POST['submitA'])) {
 	header('Location: ../admin.php');
 
 }
+elseif (isset($_POST['submitH'])) {
+	$title = $_POST['title'];
+	$des = $_POST['des'];
+	$image= addslashes(file_get_contents($_FILES['img']['tmp_name']));
+	$maxsize = 10000000; //set to approx 10 MB
+	 mysqli_query($conn,"CALL insertHeader('$title','$des','$image')");
+	 header('Location: ../admin.php');
+
+}
 
 
 ?>

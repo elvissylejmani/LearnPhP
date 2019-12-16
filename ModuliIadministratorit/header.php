@@ -42,6 +42,16 @@ $activePage = basename($_SERVER['PHP_SELF']);
   cursor: pointer;
   text-align: center;
 }
+input[type=submit] {
+  width: 50%;
+  background-color: #8A8A8A;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 25%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 input[type=text], select {
   width: 100%;
   padding: 12px 20px;
@@ -81,6 +91,21 @@ input[type=text], select {
 							?>
 			<?= '<div id="header" style="background: url(data:image/jpg;base64,'.base64_encode($Picture) .') no-repeat center; background-size: cover;">'?>
 			<div id="">
+			<div class="row">
+<div class="12u">
+<section id="content" >
+
+    <h1 style="font-size: 4em; text-align:center; color:#ccc">shto te dhena</h1>
+    <form action="Core/insert.php" method="post" enctype="multipart/form-data">
+    <input type="text" name="title" required>
+    <input type="text" name="des" required>
+	<input type="hidden" name="MAX_FILE_SIZE" value="10000000"  />
+	<input name="img" type="file" style="color:white"; required />
+	<input type="submit" name="submitH" value="inserto">
+    </form>
+</section>
+</div>
+</div>
 				<div class=""> 
 				<div class="12u">
 							<section id="content" >
