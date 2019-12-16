@@ -26,9 +26,18 @@ elseif (isset($_POST['submitH'])) {
 	$image= addslashes(file_get_contents($_FILES['img']['tmp_name']));
 	$maxsize = 10000000; //set to approx 10 MB
 	 mysqli_query($conn,"CALL insertHeader('$title','$des','$image')");
-	 header('Location: ../admin.php');
+	 header('Location: ../index.php');
 
 }
+elseif (isset($_POST['submitm'])) {
+	 $menu = $_POST['menu'];
+	 $link = $_POST['link'];
+	 $admin = $_POST['pergj'];
+	mysqli_query($conn,"CALL insertmenu('$menu','$link','$admin')");
+	header('Location: ../index.php');
+
+}
+
 
 
 ?>

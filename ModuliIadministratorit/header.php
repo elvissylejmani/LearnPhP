@@ -169,5 +169,55 @@ input[type=text], select {
 						</ul>
 					</nav>
 				</div>
+				<div class="row">
+<div class="12u">
+<section id="content"  style="color:#ccc">
+
+    <h1 style="font-size: 4em; text-align:center; color:#ccc">shto te meny</h1>
+    <form action="Core/insert.php" method="post">
+    <input type="text" placeholder="Emri i menys" name="menu" required>
+	<input type="text" placeholder="linku i menys" name="link" required>
+	Deshironi ta shihni ne modulin e perdoruesit? 
+	<input type="radio" name="pergj" value="0" id=""> Po <input type="radio" value="1" name="pergj" id=""> Jo
+	<input type="submit" name="submitm" value="inserto">
+    </form>
+</section>
+</div>
+</div>
+				<div class="12u">
+							<section id="content" >
+							<div class="" style="margin-bottom: 2em">
+							<table width='100%' border=0>
+	<tr bgcolor='#CCCCCC'>
+		<td>Emri i menus</td>
+		<td>Linku i menus</td>
+		<td>A shihet ne modulin e perdoruesit</td>
+		<td>Modifiko</td>
+	</tr>
+	<?php
+						mysqli_free_result($result);  
+						mysqli_next_result($conn);
+								$result = mysqli_query($conn,"CALL Menu_php()");
+								while($row=mysqli_fetch_array($result, MYSQLI_ASSOC))
+								{
+								
+						?> 
+						<tr bgcolor='#6B6B6B' style="width: 100%">
+						<form action="Core/edit.php" method="POST">
+							<td><input type="text" name="menu" value="<?= $row['Menu_Name'] ?>"></td>
+							<td> <input type="text" name="link" id="" value="<?= $row['Menu_Link'] ?>"></td>
+							<td> <input type="text" name="admin" id="" value="<?= $row['Admin'] ?>"></td>
+							<input type="hidden" value="<?=$row['Menu_ID'] ?>" name="UID">
+							<td><input id="del" type="submit" name="submitm" value="Edito">
+		 |  <a id="" href="Core/delete.php?uid=<?=$row['Menu_ID'] ?>&tname=menu_php&ID=Menu_ID&url=index"
+		onClick="return confirm('Are you sure you want to delete?')">
+		 <input  id="del" value="Fshi"></a></td>
+		 </form>
+		</tr>
+								<?php } ?>
+							</table>
+							</div>
+							</section>
+				</div>
 				</div>
 			</div>
