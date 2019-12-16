@@ -24,6 +24,15 @@ header("Location: ../index.php");
 
 
 }
+elseif (isset($_POST['submitm'])) {
+	$menu = $_POST['menu'];
+	$link = $_POST['link'];
+	$admin = $_POST['admin'];
+    $id = $_POST['UID'];
+    mysqli_query($conn,"CALL editmenu('$menu','$link','$admin','$id')");
+    header("Location: ../index.php");
+    
+}
 
 
 
