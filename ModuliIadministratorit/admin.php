@@ -80,10 +80,10 @@ while($row = mysqli_fetch_array($sql)) {
     <form action="Core/edit.php" method="post">	
         <tr>
         <td><input type="text" name="username" value="<?= $username ?>"></td>
-        <td><input type="text" name="password" value="<?= $AID ?>"></td>
+        <td><input type="text" name="password" value="<?= $password ?>"></td>
         <input type="hidden" value="<?=$AID ?>" name="UID">
 		<td><input id="del" type="submit" name="submit" value="Edito">
-		 | <a id="" href="Core/delete.php?uid=<?= $AID ?>&tname=admin"
+		 | <a id="" href="Core/delete.php?uid=<?= $AID ?>&tname=admin&ID=AID"
 		onClick="return confirm('Are you sure you want to delete?')">
          <input  id="del" value="Fshi"></a></td></tr>
         </form>
