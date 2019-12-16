@@ -13,7 +13,7 @@
 }
 input[type=submit] {
   width: 50%;
-  background-color: #6B6B6B;
+  background-color: #8A8A8A;
   color: white;
   padding: 14px 20px;
   margin: 8px 25%;
@@ -23,7 +23,7 @@ input[type=submit] {
 }
 #del {
     width: 40%;
-  background-color: #6B6B6B;
+  background-color: #8A8A8A;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -62,7 +62,7 @@ Search username : <input type="text" name="term" />
 <input type="submit" value="Search" />  
 </form> 
 </div>
-<table width='100%' border=0>
+<table class="a" width='100%' border=0>
 	<tr bgcolor='#CCCCCC'>
 		<td>username</td>
 		<td>password</td>
