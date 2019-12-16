@@ -60,8 +60,9 @@ $activePage = basename($_SERVER['PHP_SELF']);
 								{
 								extract($row);
 						?> 
+						<?php if($Admin == 0) { ?>
 							<li class="<?php if($activePage == $Menu_Link) { echo"active"; } else {echo"";} ?>"><a href="<?= $Menu_Link ?>"><?= $Menu_Name ?></a></li>
-									<?php } ?>
+									<?php } } ?>
 						</ul>
 					</nav>
 				</div>
