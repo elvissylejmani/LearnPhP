@@ -16,13 +16,23 @@
 								mysqli_free_result($result);  
 								mysqli_next_result($conn);
 									$result = mysqli_query($conn,"CALL sidebar_select()");
-									while($row=mysqli_fetch_array($result, MYSQLI_ASSOC))
-									{
+									$row=mysqli_fetch_array($result, MYSQLI_ASSOC);
 									extract($row);
 								?>
 									<h2><?= $Sidebar_Title ?></h2>
-									<?php } ?>
+									
+<div class="12u">
+<section id="content" >
+
+    <h2 style="text-align:center; color:#ccc">shto titull</h2>
+	<form action="Core/insert.php" method="post">
+	<input type="text" name="title">
+	<input type="submit" name="submitST" value="inserto">
+    </form>
+</section>
+</div>
 								</header>
+
 								<ul class="style3">
 									<?php
 										mysqli_free_result($result);  
@@ -65,6 +75,7 @@
 								</header>
 								<p><?= utf8_encode($Article_Content) ?></p>
 								<a href="<?= $Article_Link ?>" class="button"><?= $Article_Button ?></a>
+
 							</section>
 						</div>
 						<div class="3u">
