@@ -43,6 +43,14 @@ elseif (isset($_POST['submitST'])) {
 	header('Location: ../index.php');
 
 }
+elseif (isset($_POST['submitsa'])) {
+	 $lang = $_POST['lang'];
+	 $title = $_POST['title'];
+	 $link = $_POST['link'];
+	mysqli_query($conn,"CALL insertsidebararticle('$lang','$title','$link')");
+	header('Location: ../index.php');
+
+}
 
 
 

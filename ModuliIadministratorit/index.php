@@ -90,6 +90,72 @@
 										<p><a href="#">Donec leo, vivamus fermentum nibh in augue praesent urna congue rutrum.</a></p>
 									</li> -->
 								</ul>
+								<div class="12u">
+<section id="content" >
+
+    <h2 style="text-align:center; font-size:2em; color:#ccc">shto artikull</h2>
+	<form action="Core/insert.php" method="post">
+	<input type="text" name="lang" >
+	<input type="text" name="title">
+	<input type="text" name="link">
+	<input type="submit" name="submitsa" value="inserto">
+    </form>
+</section>
+</div>
+								<div class="12u">
+							<section id="content" >
+							<div class="" style="margin-bottom: 2em">
+							<table id="tableres" width='100%' border=0>
+								
+
+
+	<?php
+	mysqli_next_result($conn);
+	$res = mysqli_query($conn,"CALL selectallarticle()");
+	while($row = mysqli_fetch_array($res)){
+		
+	?>
+	
+	<form action="Core/edit.php" method="POST">
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td style="text-align: center; color:#ccc">Gjuha programuese</td>
+	</tr>
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td><input type="text" name="lang" value="<?= $row['Article_ProgLang'] ?>"></td>
+	</tr>
+	
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td style="text-align: center; color:#ccc">Titulli</td>
+	</tr>
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td><input type="text" name="title" value="<?= $row['Article_Title'] ?>"></td>
+	</tr>
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td style="text-align: center; color:#ccc">Linku</td>
+	</tr>
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td><input type="text" name="link" value="<?= $row['Article_Link'] ?>"></td>
+	</tr>
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td style="text-align: center; color:#ccc">Modifiko</td>
+	</tr>
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<input type="hidden" value="<?=$row['Article_PHP'] ?>" name="UID">
+<td><input id="del" type="submit" name="submitSA" value="Edito">
+		 |  <a id="" href="Core/delete.php?uid=<?=$row['Article_PHP'] ?>&tname=sidebar_article_php&ID=Article_PHP&url=index"
+		onClick="return confirm('Are you sure you want to delete?')">
+		 <input  id="del" value="Fshi"></a></td>
+		</tr>
+	</form>
+	<?php } ?>
+
+					</table>
+							</div>
+							</section>
+				</div>
+												
+
+
 							</section>
 						</div>
 						<div class="6u skel-cell-important">
