@@ -40,6 +40,15 @@ elseif (isset($_POST['submitST'])) {
     header("Location: ../index.php");
     
 }
+elseif (isset($_POST['submitSA'])) {
+	$lang = $_POST['lang'];
+	$title = $_POST['title'];
+	$link = $_POST['link'];
+    $id = $_POST['UID'];
+    mysqli_query($conn,"CALL updatesidebararticle('$lang','$title','$link','$id')");
+    header("Location: ../index.php");
+    
+}
 
 
 
