@@ -7,12 +7,4 @@ $link = $_GET['url'];
 mysqli_query($conn,"CALL deleteD('$tname','$cname','$id')");
 header('Location: ../'.$link . '.php');
 
-
-
-
-
-
-
-
-
 ?>

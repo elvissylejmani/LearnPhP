@@ -37,6 +37,12 @@ elseif (isset($_POST['submitm'])) {
 	header('Location: ../index.php');
 
 }
+elseif (isset($_POST['submitST'])) {
+	 $title = $_POST['title'];
+	mysqli_query($conn,"CALL sidebartitleinsert('$title')");
+	header('Location: ../index.php');
+
+}
 
 
 
