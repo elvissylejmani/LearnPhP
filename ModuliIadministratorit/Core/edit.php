@@ -33,6 +33,13 @@ elseif (isset($_POST['submitm'])) {
     header("Location: ../index.php");
     
 }
+elseif (isset($_POST['submitST'])) {
+	$title = $_POST['title'];
+    $id = $_POST['UID'];
+    mysqli_query($conn,"CALL editsidebartitle('$title','$id')");
+    header("Location: ../index.php");
+    
+}
 
 
 
