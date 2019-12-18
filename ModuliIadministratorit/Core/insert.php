@@ -56,13 +56,8 @@ elseif (isset($_POST['submitsm'])) {
 	$content = $_POST['content'];
 	 $button = $_POST['button'];
 	 $link = $_POST['link'];
-	echo $title;
-	echo $content;
-	echo $button;
-	echo $link;
 	 mysqli_query($conn,"CALL insertmidarticle('$title','$content','$button','$link')");
 	header('Location: ../index.php');
-
 }
 
 
