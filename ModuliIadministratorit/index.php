@@ -173,6 +173,51 @@
 								</header>
 								<p><?= utf8_encode($Article_Content) ?></p>
 								<a href="<?= $Article_Link ?>" class="button"><?= $Article_Button ?></a>
+								<div class="12u">
+<section id="content" >
+
+    <h2 style="text-align:center; font-size:2em; color:#ccc">shto ne mes</h2>
+	<form action="Core/insert.php" method="post">
+	<input type="text" name="title" placeholder="Titulli" >
+	<input type="text" name="content" placeholder="Kontenti">
+	<input type="text" name="button" placeholder="Emri i butonit">
+	<input type="text" name="link" placeholder="Linku">
+	<input type="submit" name="submitsm" value="inserto">
+    </form>
+</section>
+</div>
+<div class="12u">
+							<section id="content" >
+							<div class="" style="margin-bottom: 2em">
+							<table id="tableres" width='100%' border=0>
+	<tr bgcolor='#CCCCCC'>
+		<td>Titulli</td>
+		<td>Modifiko</td>
+	</tr>
+
+	<?php
+	mysqli_next_result($conn);
+	$res = mysqli_query($conn,"CALL selectallsidebar()");
+	while($row = mysqli_fetch_array($res)){
+		
+	?>
+	
+	<form action="Core/edit.php" method="POST">
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td><input type="text" name="title" value="<?= $row['Sidebar_Title'] ?>"></td>
+	<input type="hidden" value="<?=$row['Sidebar_ID'] ?>" name="UID">
+<td><input id="del" type="submit" name="submitST" value="Edito">
+		 |  <a id="" href="Core/delete.php?uid=<?=$row['Sidebar_ID'] ?>&tname=sidebar_php_title&ID=Sidebar_ID&url=index"
+		onClick="return confirm('Are you sure you want to delete?')">
+		 <input  id="del" value="Fshi"></a></td>
+		</tr>
+	</form>
+	<?php } ?>
+
+					</table>
+							</div>
+							</section>
+				</div>
 
 							</section>
 						</div>
