@@ -59,6 +59,11 @@ elseif (isset($_POST['submitsm'])) {
 	 mysqli_query($conn,"CALL insertmidarticle('$title','$content','$button','$link')");
 	header('Location: ../index.php');
 }
+elseif (isset($_POST['submitsrt'])) {
+echo $title = $_POST['title'];
+	echo mysqli_query($conn,"CALL insertrightsidear('$title')");
+    header('Location: ../index.php');
+}
 
 
 

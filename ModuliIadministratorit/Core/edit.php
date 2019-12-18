@@ -60,5 +60,13 @@ elseif (isset($_POST['submitSM'])) {
     
 }
 
+elseif (isset($_POST['submitSRT'])) {
+	$title = $_POST['title'];
+    $id = $_POST['UID'];
+    echo mysqli_query($conn,"CALL updaterightsidebar('$title','$id')");
+    header("Location: ../index.php");
+    
+}
+
 
 

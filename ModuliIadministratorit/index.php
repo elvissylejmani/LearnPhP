@@ -260,6 +260,48 @@
 								<header>
 									<h2><?= $RightSideBar_Title ?></h2>
 								</header>
+								<div class="12u">
+<section id="content" >
+
+    <h2 style="text-align:center; font-size:3rem; color:#ccc">shto titull</h2>
+	<form action="Core/insert.php" method="post">
+	<input type="text" name="title">
+	<input type="submit" name="submitsrt" value="inserto">
+    </form>
+</section>
+</div>
+<div class="12u">
+							<section id="content" >
+							<div class="" style="margin-bottom: 2em">
+							<table id="tableres" width='100%' border=0>
+	<tr bgcolor='#CCCCCC'>
+		<td>Titulli</td>
+		<td>Modifiko</td>
+	</tr>
+
+	<?php
+	mysqli_next_result($conn);
+	$res = mysqli_query($conn,"CALL selectallrightsidebar()");
+	while($row = mysqli_fetch_array($res)){
+		
+	?>
+	
+	<form action="Core/edit.php" method="POST">
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td><input type="text" name="title" value="<?= $row['RightSideBar_Title'] ?>"></td>
+	<input type="hidden" value="<?=$row['RightSideBar_ID'] ?>" name="UID">
+<td><input id="del" type="submit" name="submitSRT" value="Edito">
+		 |  <a id="" href="Core/delete.php?uid=<?=$row['RightSideBar_ID'] ?>&tname=rightsidebar_php&ID=RightSideBar_ID&url=index"
+		onClick="return confirm('Are you sure you want to delete?')">
+		 <input  id="del" value="Fshi"></a></td>
+		</tr>
+	</form>
+	<?php } ?>
+
+					</table>
+							</div>
+							</section>
+				</div> 
 								<ul class="style1">
 								<?php
 										mysqli_free_result($result);  
@@ -274,7 +316,9 @@
 										?>	
 									<li><span class="fa fa-check"></span><a href="Core/Uploads.php?file_id=<?=$id?>"><?= $name ?></a></li>
 											<?php } ?>
+
 								</ul>
+								
 							</section>
 						</div>
 					</div>
