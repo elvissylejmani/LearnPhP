@@ -53,7 +53,7 @@ elseif (isset($_POST['submitsa'])) {
 }
 elseif (isset($_POST['submitsm'])) {
 	$title = $_POST['title'];
-	$content = $_POST['content'];
+	$content = utf8_decode($_POST['content']);
 	 $button = $_POST['button'];
 	 $link = $_POST['link'];
 	 mysqli_query($conn,"CALL insertmidarticle('$title','$content','$button','$link')");
