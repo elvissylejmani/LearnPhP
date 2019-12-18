@@ -212,7 +212,7 @@
 	<td style="text-align: center; color:#ccc">Titulli</td>
 	</tr>
 	<tr bgcolor='#6B6B6B' style="width: 100%">
-	<td><input type="text" name="content" value="<?= $row['Article_Content'] ?>"></td>
+	<td><input type="text" name="content" value="<?=  utf8_encode($row['Article_Content']) ?>"></td>
 	</tr>
 	<tr bgcolor='#6B6B6B' style="width: 100%">
 	<td style="text-align: center; color:#ccc">Kontenti</td>
@@ -232,7 +232,7 @@
 	<tr bgcolor='#6B6B6B' style="width: 100%">
 	<input type="hidden" value="<?=$row['Article_ID'] ?>" name="UID">
 <td><input id="del" type="submit" name="submitSM" value="Edito">
-		 |  <a id="" href="Core/delete.php?uid=<?=$row['Article_PHP'] ?>&tname=sidebar_article_php&ID=Article_PHP&url=index"
+		 |  <a id="" href="Core/delete.php?uid=<?=$row['Article_ID'] ?>&tname=article_middel&ID=Article_ID&url=index"
 		onClick="return confirm('Are you sure you want to delete?')">
 		 <input  id="del" value="Fshi"></a></td>
 		</tr>
