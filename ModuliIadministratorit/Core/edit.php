@@ -49,6 +49,16 @@ elseif (isset($_POST['submitSA'])) {
     header("Location: ../index.php");
     
 }
+elseif (isset($_POST['submitSM'])) {
+	$title = $_POST['title'];
+	$content = $_POST['content'];
+	$button = $_POST['button'];
+    $link = $_POST['link'];
+    $id = $_POST['UID'];
+    echo mysqli_query($conn,"CALL updatemid('$title','$content','$button','$link','$id')");
+    header("Location: ../index.php");
+    
+}
 
 
 
