@@ -67,6 +67,13 @@ elseif (isset($_POST['submitSRT'])) {
     header("Location: ../index.php");
     
 }
+elseif (isset($_POST['submitSFT'])) {
+	$title = $_POST['title'];
+    $id = $_POST['UID'];
+    echo mysqli_query($conn,"CALL updatefootersidebar('$title','$id')");
+    header("Location: ../index.php");
+    
+}
 
 
 

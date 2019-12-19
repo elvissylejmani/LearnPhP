@@ -60,8 +60,13 @@ elseif (isset($_POST['submitsm'])) {
 	header('Location: ../index.php');
 }
 elseif (isset($_POST['submitsrt'])) {
-echo $title = $_POST['title'];
+    $title = $_POST['title'];
 	echo mysqli_query($conn,"CALL insertrightsidear('$title')");
+    header('Location: ../index.php');
+}
+elseif (isset($_POST['submitSFT'])) {
+    $title = $_POST['title'];
+	echo mysqli_query($conn,"CALL insertfooter('$title')");
     header('Location: ../index.php');
 }
 
