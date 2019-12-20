@@ -93,6 +93,14 @@ elseif (isset($_POST['submitVF'])) {
     header("Location: ../index.php");
 
 }
+elseif (isset($_POST['submitRFT'])) {
+    $title = $_POST['title'];
+    $id = $_POST['UID'];
+
+    echo mysqli_query($conn,"CALL editrft('$title','$id')");
+    header("Location: ../index.php");
+
+}
 
 
 
