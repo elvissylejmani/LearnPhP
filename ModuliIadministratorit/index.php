@@ -318,7 +318,51 @@
 											<?php } ?>
 
 								</ul>
+								<div class="container">
+        <div class="row">
+          <form action="Core/uploads.php" method="post" enctype="multipart/form-data" >
+            <h3>Shto liber</h3>
+            <input type="file" name="myfile"> <br>
+            <input type="submit" value="Inserto" name="save">
+          </form>
+        </div>
+	  </div>
+	  <div class="12u">
+							<section id="content" >
+							<div class="" style="margin-bottom: 2em">
+							<table id="tableres" width='100%' border=0>
 								
+
+
+	<?php
+	mysqli_next_result($conn);
+	$res = mysqli_query($conn,"CALL selectallfiles()");
+	while($row = mysqli_fetch_array($res)){
+		
+	?>
+	
+	<form action="Core/edit.php" method="POST">
+	
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td><input type="text" name="name" value="<?= $row['name'] ?>"></td>
+	</tr>
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td style="text-align: center; color:#ccc">Modifiko</td>
+	</tr>
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<input type="hidden" value="<?=$row['id'] ?>" name="UID">
+<td><input id="del" type="submit" name="submitB" value="Edito">
+		 |  <a id="" href="Core/deletefile.php?uid=<?= $row['id'] ?>&name=<?= $row['name']?>"
+		onClick="return confirm('Are you sure you want to delete')">
+		 <input  id="del" value="Fshi"></a></td>
+		</tr>
+	</form>
+	<?php } ?>
+
+					</table>
+							</div>
+							</section>
+				</div>
 							</section>
 						</div>
 					</div>

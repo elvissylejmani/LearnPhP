@@ -128,6 +128,21 @@ elseif (isset($_POST['submitC'])) {
     mysqli_query($conn,"CALL editC('$Name','$Email','$content','$id')");
     header('Location: ../contact.php');
 }
+elseif (isset($_POST['submitB'])) {
+    $id = $_POST['UID'];
+   echo $Name = $_POST['name'];
+    echo $id;
+    $row = mysqli_query($conn,"CALL selectfilewithid('$id')");
+    mysqli_next_result($conn);
+    $res = mysqli_fetch_array($row);
+    echo $res['name'];
+    if (file_exists('../../ModuliIPerdoruesit/uploads/' . $res['name'])) {
+        echo mysqli_query($conn,"CALL editfile('$Name','$id')");
+       rename('../../ModuliIPerdoruesit/uploads/' .$res['name'],'../../ModuliIPerdoruesit/uploads/' .$Name);
+}
+   
+    header('Location: ../contact.php');
+}
 
 
 
