@@ -88,12 +88,7 @@ elseif (isset($_POST['submitRFT'])) {
 	 mysqli_query($conn,"CALL insertrt('$title')");
     header('Location: ../index.php');
 }
-elseif (isset($_POST['submitOC'])) {
-    $title = $_POST['title'];
-    $link = $_POST['link'];
-	 mysqli_query($conn,"CALL insertOC('$title','$link')");
-    header('Location: ../index.php');
-}
+
 
 
 

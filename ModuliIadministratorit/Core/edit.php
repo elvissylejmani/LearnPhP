@@ -111,6 +111,23 @@ elseif (isset($_POST['submitOC'])) {
     header("Location: ../index.php");
 
 }
+elseif (isset($_POST['submitOC'])) {
+    $title = $_POST['Name'];
+    $link = $_POST['Email'];
+    $link = $_POST['Content'];
+    $id = $_POST['UID'];
+    mysqli_query($conn,"CALL editOC('$title','$link','$id')");
+    header("Location: ../index.php");
+
+}
+elseif (isset($_POST['submitC'])) {
+    $Name = $_POST['Name'];
+    $Email = $_POST['Email'];
+    $content = $_POST['content'];
+    $id = $_POST['UID'];
+    mysqli_query($conn,"CALL editC('$Name','$Email','$content','$id')");
+    header('Location: ../contact.php');
+}
 
 
 
