@@ -82,6 +82,47 @@ h1{
 									</section>
 						</div>
 					</div>
+					<div class="row">
+					<div class="12u">
+							<section id="content" >
+							<div class="" style="margin-bottom: 2em">
+							<table id="tableres" width='100%' border=0>
+	<tr bgcolor='#CCCCCC'>
+		<td>Titulli</td>
+		<td>Nentitulli</td>
+		<td>Foto</td>
+		<td>Modifiko</td>
+	</tr>
+
+	<?php
+	mysqli_next_result($conn);
+	$res = mysqli_query($conn,"CALL selectallcontact()");
+	while($row = mysqli_fetch_array($res)){
+		
+	?>
+	
+	<form enctype="multipart/form-data" action="Core/edit.php" method="POST">
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td><input type="text" name="Name" value="<?= $row['Name'] ?>"></td>
+	<td> <input type="text" name="Email" id="" value="<?= $row['Email'] ?>"></td>
+	<!-- <td> <input type="text" name="description" id="" value=""></td> -->
+	<td ><textarea style="position: relative; top: 16px;"  name="content" id="" cols="30" rows="10"> <?= $row['Content'] ?></textarea> </td>
+	<input type="hidden" value="<?=$row['ID'] ?>" name="UID">
+	
+<td><input id="del" type="submit" name="submitC" value="Edito">
+		 |  <a id="" href="Core/delete.php?uid=<?=$row['ID'] ?>&tname=Contact&ID=ID&url=contact"
+		onClick="return confirm('Are you sure you want to delete?')">
+		 <input  id="del" value="Fshi"></a></td>
+		</tr>
+	</form>
+	<?php } ?>
+
+					</table>
+							</div>
+							</section>
+				</div>
+
+					</div>
 
 				</div>	
 			</div>
