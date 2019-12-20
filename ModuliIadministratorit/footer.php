@@ -155,7 +155,7 @@
 								?>
 								<div> <a href="" class="image full"><img src="<?php echo 'data:image/jpeg;base64,'. base64_encode($Pic) ?>" alt=""></a> </div>
 							</section>
-							<div class="3u">
+							<div class="">
 <section id="content" >
 
     <h2 style="text-align:center; font-size:2em; color:#ccc">shto foto</h2>
@@ -165,9 +165,7 @@
 	<input type="submit" name="submitSFF" value="inserto">
     </form>
 </section>
-</div>
-						</div>
-						<div class="6u">
+												
 							<section id="content" >
 							<div class="" style="margin-bottom: 2em">
 							<table id="tableres" width='100%' border=0>
@@ -202,7 +200,7 @@
 							</div>
 							</section>
 				</div>
-						
+						</div>
 						<div class="3u">
 							<section id="box3">
 								<header>
@@ -228,6 +226,38 @@
     </form>
 </section>
 </div>
+<div class="12u">
+							<section id="content" >
+							<div class="" style="margin-bottom: 2em">
+							<table id="tableres" width='100%' border=0>
+	<tr bgcolor='#CCCCCC'>
+		<td>Titulli</td>
+		<td>Modifiko</td>
+	</tr>
+
+	<?php
+	mysqli_next_result($conn);
+	$res = mysqli_query($conn,"CALL selectalrf()");
+	while($row = mysqli_fetch_array($res)){
+		
+	?>
+	
+	<form action="Core/edit.php" method="POST">
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td><input type="text" name="title" value="<?= $row['Title'] ?>"></td>
+	<input type="hidden" value="<?=$row['ID'] ?>" name="UID">
+<td><input id="del" type="submit" name="submitRFT" value="Edito">
+		 |  <a id="" href="Core/delete.php?uid=<?=$row['ID'] ?>&tname=rightfootersidebar_php&ID=ID&url=index"
+		onClick="return confirm('Are you sure you want to delete?')">
+		 <input  id="del" value="Fshi"></a></td>
+		</tr>
+	</form>
+	<?php } ?>
+
+					</table>
+							</div>
+							</section>
+				</div> 
 								<ul class="style1">
 								<?php
 										mysqli_free_result($result);  
@@ -241,8 +271,68 @@
 									<li><a href="<?= $CourseLink ?>"><?= $CourseTitle ?></a></li>
 											<?php } ?>				
 								</ul>
+								
 							</section>
+							<section id="content" >
+
+    <h2 style="text-align:center; color:#ccc">shto te dhena me lart</h2>
+	<form action="Core/insert.php" method="post">
+	<input type="text"  placeholder="Video Title" name="title">
+	<input type="text"  placeholder="Video link" name="link">
+	<input type="submit" name="submitOC" value="inserto">
+    </form>
+</section>
+<div class="12u">
+							<section id="content" >
+							<div class="" style="margin-bottom: 2em">
+							<table id="tableres" width='100%' border=0>
+								
+
+
+	<?php
+	mysqli_next_result($conn);
+	$res = mysqli_query($conn,"CALL SelectallOC()");
+	while($row = mysqli_fetch_array($res)){
+		
+	?>
+	
+	<form action="Core/edit.php" method="POST">
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td style="text-align: center; color:#ccc">Titulli</td>
+	</tr>
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td><input type="text" name="title" value="<?= $row['CourseTitle'] ?>"></td>
+	</tr>
+	
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td style="text-align: center; color:#ccc">Linku</td>
+	</tr>
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td><input type="text" name="link" value="<?= $row['CourseLink'] ?>"></td>
+	</tr>
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<td style="text-align: center; color:#ccc">Modifiko</td>
+	</tr>
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<input type="hidden" value="<?=$row['ID'] ?>" name="UID">
+<td><input id="del" type="submit" name="submitOC" value="Edito">
+		 |  <a id="" href="Core/delete.php?uid=<?=$row['Article_PHP'] ?>&tname=sidebar_article_php&ID=Article_PHP&url=index"
+		onClick="return confirm('Are you sure you want to delete?')">
+		 <input  id="del" value="Fshi"></a></td>
+		</tr>
+	</form>
+	<?php } ?>
+
+					</table>
+							</div>
+							</section>
+				</div>	
+</div>
 						</div>
+						
+						
+						
+						
 					</div>
 				</div>
 			</div>
