@@ -83,6 +83,11 @@ elseif (isset($_POST['submitIVF'])) {
 	 mysqli_query($conn,"CALL insertvideos('$channel','$title','$link')");
     header('Location: ../index.php');
 }
+elseif (isset($_POST['submitRFT'])) {
+    $title = $_POST['title'];
+	 mysqli_query($conn,"CALL insertrt('$title')");
+    header('Location: ../index.php');
+}
 
 
 
