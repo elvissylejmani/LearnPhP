@@ -51,8 +51,8 @@ elseif (isset($_POST['submitSA'])) {
 }
 elseif (isset($_POST['submitSM'])) {
 	$title = $_POST['title'];
-	$content = $_POST['content'];
-	$button =  utf8_decode($_POST['button']);
+	$content = utf8_decode($_POST['content']);
+	$button =  $_POST['button'];
     $link = $_POST['link'];
     $id = $_POST['UID'];
     echo mysqli_query($conn,"CALL updatemid('$title','$content','$button','$link','$id')");
@@ -73,6 +73,20 @@ elseif (isset($_POST['submitSFT'])) {
     echo mysqli_query($conn,"CALL updatefootersidebar('$title','$id')");
     header("Location: ../index.php");
     
+}
+elseif (isset($_POST['submitFP'])) {
+    $uid = $_POST['UID'];
+    if(!empty($_FILES['img']['tmp_name'])) {
+    $image= addslashes(file_get_contents($_FILES['img']['tmp_name']));
+    $maxsize = 10000000; //set to approx 10 MB
+    mysqli_query($conn,"CALL updatefooterpic('$image','$uid')");
+}
+
+
+
+header("Location: ../index.php");
+
+
 }
 
 
