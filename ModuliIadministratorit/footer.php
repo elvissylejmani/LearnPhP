@@ -58,7 +58,9 @@
 							</div>
 							</section>
 				</div> 
+				
 								<ul class="style3">
+									
 								<?php
 										mysqli_free_result($result);  
 										mysqli_next_result($conn);
@@ -75,6 +77,18 @@
 										<p><a href="<?= $YoutubeVideoLink ?>"><?= $YoutubeVideoTitle ?></a></p>
 									</li>
 											<?php } ?>
+											<div class="12u">
+<section id="content" >
+
+    <h2 style="text-align:center; color:#ccc">shto te dhena me lart</h2>
+	<form action="Core/insert.php" method="post">
+	<input type="text" placeholder="Channel" name="channel">
+	<input type="text"  placeholder="Video Title" name="title">
+	<input type="text"  placeholder="Video link" name="link">
+	<input type="submit" name="submitIVF" value="inserto">
+    </form>
+</section>
+</div>
 											
 								</ul>
 							</section>
@@ -82,18 +96,64 @@
 						<div class="6u">
 							<section id="box2">
 							<?php
+							
 								mysqli_free_result($result);  
 								mysqli_next_result($conn);
 								$result = mysqli_query($conn,"CALL selectfooterpicture()");
 								$row=mysqli_fetch_array($result, MYSQLI_ASSOC);
 								extract($row);
-							
-
 								?>
-								<div> <a href="" class="image full"><img src="data:image/jpg;base64,<?= base64_encode($Pic) ?>" alt=""></a> </div>
+								<div> <a href="" class="image full"><img src="<?php echo 'data:image/jpeg;base64,'. base64_encode($Pic) ?>" alt=""></a> </div>
 							</section>
+							<div class="3u">
+<section id="content" >
+
+    <h2 style="text-align:center; font-size:2em; color:#ccc">shto foto</h2>
+	<form action="Core/insert.php" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="MAX_FILE_SIZE" value="10000000"  />
+    <input name="image" style="margin-left: 13rem" type="file" style="color:white"; required />
+	<input type="submit" name="submitSFF" value="inserto">
+    </form>
+</section>
+</div>
 						</div>
-						<div class="3u">
+						<div class="6u">
+							<section id="content" >
+							<div class="" style="margin-bottom: 2em">
+							<table id="tableres" width='100%' border=0>
+	<tr bgcolor='#CCCCCC'>
+		<td>Titulli</td>
+		<td>Modifiko</td>
+	</tr>
+
+	<?php
+	mysqli_next_result($conn);
+	$res = mysqli_query($conn,"CALL selectallfooterpic()");
+	while($row = mysqli_fetch_array($res)){
+		
+	?>
+	
+	<form enctype="multipart/form-data" action="Core/edit.php" method="POST">
+	<tr bgcolor='#6B6B6B' style="width: 100%">
+	<input type="hidden" value="<?=$row['ID'] ?>" name="UID">
+	<td style="width: 50%;"><?= '<img style="width:33%" alt="" src="data:images/jpeg;base64,'.base64_encode($row['Pic']).'"/>'?>
+	<input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
+     <input name="img" type="file" style="color:white"; />
+</td>
+<td><input id="del" type="submit" name="submitFP" value="Edito">
+		 |  <a id="" href="Core/delete.php?uid=<?=$row['ID'] ?>&tname=footerpicture&ID=ID&url=index"
+		onClick="return confirm('Are you sure you want to delete?')">
+		 <input  id="del" value="Fshi"></a></td>
+		</tr>
+	</form>
+	<?php } ?>
+
+					</table>
+							</div>
+							</section>
+				</div>
+						
+						<div class="6u">
 							<section id="box3">
 								<header>
 								<?php

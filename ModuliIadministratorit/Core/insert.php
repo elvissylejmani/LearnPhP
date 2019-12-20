@@ -66,7 +66,21 @@ elseif (isset($_POST['submitsrt'])) {
 }
 elseif (isset($_POST['submitSFT'])) {
     $title = $_POST['title'];
-	echo mysqli_query($conn,"CALL insertfooter('$title')");
+	 mysqli_query($conn,"CALL insertfooter('$title')");
+    header('Location: ../index.php');
+}
+elseif (isset($_POST['submitSFF'])) {
+	$image= addslashes(file_get_contents($_FILES['image']['tmp_name']));
+	$maxsize = 10000000; //set to approx 10 MB
+
+    mysqli_query($conn,"CALL insertfooterpic('$image')");
+    header('Location: ../index.php');
+}
+elseif (isset($_POST['submitIVF'])) {
+    $channel = $_POST['channel'];
+    $title = $_POST['title'];
+    $link = $_POST['link'];
+	 mysqli_query($conn,"CALL insertvideos('$channel','$title','$link')");
     header('Location: ../index.php');
 }
 
