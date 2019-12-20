@@ -59,7 +59,6 @@ elseif (isset($_POST['submitSM'])) {
     header("Location: ../index.php");
     
 }
-
 elseif (isset($_POST['submitSRT'])) {
 	$title = $_POST['title'];
     $id = $_POST['UID'];
@@ -80,14 +79,21 @@ elseif (isset($_POST['submitFP'])) {
     $image= addslashes(file_get_contents($_FILES['img']['tmp_name']));
     $maxsize = 10000000; //set to approx 10 MB
     mysqli_query($conn,"CALL updatefooterpic('$image','$uid')");
+    header("Location: ../index.php");
+}
+}
+elseif (isset($_POST['submitVF'])) {
+    $channel = $_POST['channel'];
+    $title = $_POST['title'];
+    $link = $_POST['link'];
+    $id = $_POST['UID'];
+    echo "hello";
+
+    echo mysqli_query($conn,"CALL editvideo('$channel','$title','$link','$id')");
+    header("Location: ../index.php");
+
 }
 
-
-
-header("Location: ../index.php");
-
-
-}
 
 
 
