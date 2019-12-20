@@ -87,9 +87,9 @@ elseif (isset($_POST['submitVF'])) {
     $title = $_POST['title'];
     $link = $_POST['link'];
     $id = $_POST['UID'];
-    echo "hello";
+   
 
-    echo mysqli_query($conn,"CALL editvideo('$channel','$title','$link','$id')");
+    mysqli_query($conn,"CALL editvideo('$channel','$title','$link','$id')");
     header("Location: ../index.php");
 
 }
@@ -101,7 +101,16 @@ elseif (isset($_POST['submitRFT'])) {
     header("Location: ../index.php");
 
 }
+elseif (isset($_POST['submitOC'])) {
+    $title = $_POST['title'];
+    $link = $_POST['link'];
+    $id = $_POST['UID'];
+   
 
+    mysqli_query($conn,"CALL editOC('$title','$link','$id')");
+    header("Location: ../index.php");
+
+}
 
 
 
