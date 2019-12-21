@@ -129,7 +129,7 @@
 	<tr bgcolor='#6B6B6B' style="width: 100%">
 	<input type="hidden" value="<?=$row['ID'] ?>" name="UID">
 <td><input id="del" type="submit" name="submitVF" value="Edito">
-		 |  <a id="" href="Core/delete.php?uid=<?=$row['Article_PHP'] ?>&tname=sidebar_article_php&ID=Article_PHP&url=index"
+		 |  <a id="" href="Core/delete.php?uid=<?=$row['ID'] ?>&tname=videos&ID=ID&url=index"
 		onClick="return confirm('Are you sure you want to delete?')">
 		 <input  id="del" value="Fshi"></a></td>
 		</tr>
@@ -316,7 +316,7 @@
 	<tr bgcolor='#6B6B6B' style="width: 100%">
 	<input type="hidden" value="<?=$row['ID'] ?>" name="UID">
 <td><input id="del" type="submit" name="submitOC" value="Edito">
-		 |  <a id="" href="Core/delete.php?uid=<?=$row['Article_PHP'] ?>&tname=sidebar_article_php&ID=Article_PHP&url=index"
+		 |  <a id="" href="Core/delete.php?uid=<?=$row['ID'] ?>&tname=onlinecourses_php&ID=ID&url=index"
 		onClick="return confirm('Are you sure you want to delete?')">
 		 <input  id="del" value="Fshi"></a></td>
 		</tr>

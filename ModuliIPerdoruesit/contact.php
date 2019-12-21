@@ -76,7 +76,7 @@ h1{
 											  <input type="text" id="fname" name="name" placeholder="Emri">
 											  <input type="text" id="fname" name="email" placeholder="Emaili">
 											  <textarea name="Content" placeholder="Mesazhi"></textarea>
-											  <input type="submit" name="submit" value="Submit">
+											  <input type="submit" name="submit" value="Dergo">
 											</form>
 										  </div>
 										  </div>
