@@ -24,8 +24,7 @@ if (isset($_POST['save'])) { // if save button on the form is clicked
     } else {
         // move the uploaded (temporary) file to the specified destination
         if (move_uploaded_file($file, $destination)) {
-            $sql = "INSERT INTO files (name, size, downloads) VALUES ('$filename', $size, 0)";
-            if (mysqli_query($conn, $sql)) {
+            if (mysqli_query($conn, "CALL insertfile('$filename', $size)")) {
                 echo "File uploaded successfully";
                 header('Location: ../index.php');
             }
@@ -38,8 +37,7 @@ if (isset($_POST['save'])) { // if save button on the form is clicked
 if (isset($_GET['file_id'])) {
     $id = $_GET['file_id'];
     // fetch file to download from database
-    $sql = "SELECT * FROM files WHERE id=$id";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conn,"CALL selectfilewithid('$id')");
     $file = mysqli_fetch_assoc($result);
     $filepath = '../../ModuliIPerdoruesit/uploads/'. $file['name'];
     if (file_exists($filepath)) {
@@ -55,7 +53,7 @@ if (isset($_GET['file_id'])) {
 
         // Now update downloads count
         $newCount = $file['downloads'] + 1;
-        $updateQuery = "UPDATE files SET downloads=$newCount WHERE id=$id";
+        $updateQuery = "CALL updatecount($newCount,'$id')";
         mysqli_query($conn, $updateQuery);
         exit;
     }
