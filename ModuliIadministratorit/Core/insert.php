@@ -13,9 +13,32 @@ if (isset($_POST['submit'])) {
 }
 elseif (isset($_POST['submitA'])) {
 	$name = mysqli_real_escape_string($conn,$_POST['name']);
-	$password = mysqli_real_escape_string($conn,MD5($_POST['password']));
+	$password = mysqli_real_escape_string($conn,$_POST['password']);
+	if (strlen($password) < 6) {
+		trigger_error("Madhesia e passwordit duhet te jete me e madhe se 6 karaktere");
+		header('Refresh: 10; URL=../admin.php');
+
+		?>
+		<p>ju do te ktheheni mbrapa per  <span id="counter">10</span> seconda.</p>
+<script type="text/javascript">
+function countdown() {
+    var i = document.getElementById('counter');
+    if (parseInt(i.innerHTML)<=0) {
+        location.href = 'login.php';
+    }
+if (parseInt(i.innerHTML)!=0) {
+    i.innerHTML = parseInt(i.innerHTML)-1;
+}
+}
+setInterval(function(){ countdown(); },1000);
+</script>
+	  <?php
+	}
+	else{
+		$password = MD5($password);
 	mysqli_query($conn,"CALL insertadmin('$name','$password')");
 	header('Location: ../admin.php');
+	}
 
 }
 elseif (isset($_POST['submitH'])) {

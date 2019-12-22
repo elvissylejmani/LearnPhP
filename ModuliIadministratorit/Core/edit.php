@@ -140,7 +140,7 @@ elseif (isset($_POST['submitB'])) {
        rename('../../ModuliIPerdoruesit/uploads/' .$res['name'],'../../ModuliIPerdoruesit/uploads/' .$Name);
 }
    
-    header('Location: ../contact.php');
+    header('Location: ../index.php');
 }
 
 
