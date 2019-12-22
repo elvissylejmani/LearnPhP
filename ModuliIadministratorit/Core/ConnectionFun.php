@@ -1,7 +1,6 @@
 <?php
-class Connection
-{
-    public static function Make($config)
+
+    function Make($config)
     {
         try {
             return mysqli_connect($config['host'],
@@ -9,10 +8,10 @@ class Connection
              $config['password'],
              $config['DB']);
          } catch (mysqli_sql_exception $e) {
-            throw $e;
+             throw $e;
+             die();
          }
          
     }
-}
 
 ?>

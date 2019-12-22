@@ -1,7 +1,5 @@
 <?php
-class Connection
-{
-    public static function Make($config)
+function Make($config)
     {
         try {
             return mysqli_connect($config['host'],
@@ -13,6 +11,5 @@ class Connection
          }
          
     }
-}
 
 ?>
