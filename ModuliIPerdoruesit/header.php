@@ -1,6 +1,7 @@
 <?php
 require 'Core/Boot.php';
 $activePage = basename($_SERVER['PHP_SELF']);
+ob_start();
 ?>
 
 <!DOCTYPE HTML>
@@ -11,7 +12,7 @@ $activePage = basename($_SERVER['PHP_SELF']);
 -->
 <html>
 	<head>
-		<title>Synchronous by TEMPLATED</title>
+		<title>LearinPhP</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -64,7 +65,11 @@ $activePage = basename($_SERVER['PHP_SELF']);
 							<li class="<?php if($activePage == $Menu_Link) { echo"active"; } else {echo"";} ?>"><a href="<?= $Menu_Link ?>"><?= $Menu_Name ?></a></li>
 									<?php } } ?>
 						</ul>
+						
 					</nav>
+					
 				</div>
 				</div>
+		
 			</div>
+			

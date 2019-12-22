@@ -34,17 +34,10 @@
 										<p><a href="<?= $Article_Link ?>"><?= $Article_Title ?></a></p>
 									</li>
 									<?php } ?>
-								<!--	<li>
-										<p class="date"><a href="#">Sep <b>30</b></a></p>
-										<p><a href="#">Donec leo, vivamus fermentum nibh in augue praesent urna congue rutrum.</a></p>
-									</li>
-									<li>
-										<p class="date"><a href="#">Sep <b>27</b></a> </p>
-										<p><a href="#">Donec leo, vivamus fermentum nibh in augue praesent urna congue rutrum.</a></p>
-									</li> -->
-								</ul>
+									</ul>
 							</section>
 						</div>
+						
 						<div class="6u skel-cell-important">
 							<section id="content" >
 								<?php 
@@ -94,6 +87,7 @@
 							</section>
 						</div>
 					</div>
+			
 
 				</div>	
 			</div>		

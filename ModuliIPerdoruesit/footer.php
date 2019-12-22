@@ -84,6 +84,22 @@
 					</div>
 				</div>
 			</div>
+			<div class="6u" style="text-align: center; position:relative;left:12rem; color:black">
+					<?php $visits = 1;
+			if (isset($_COOKIE["visits"])){
+				$visits = (int)$_COOKIE["visits"]; }
+				$Month = 2592000 + time();
+				setcookie("visits", date("F jS - g:i a"), $Month);
+				if(isset($_COOKIE['visits']))
+				{
+					$last = $_COOKIE['visits'];
+					echo "<p style='text-align:right;'>Vizita juaj e fundit ishte me: " .$last."</p>";
+				}
+				else
+				{ echo "<p style='text-align:right;'>Vizita juaj e parë në webaplikacionin tonë! Ju dëshirojmë mirëseardhje!</p>";
+				}
+			?>
+			</div>
 
 			<!-- Copyright -->
 			<div id="copyright">

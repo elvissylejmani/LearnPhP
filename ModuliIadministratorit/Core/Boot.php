@@ -3,4 +3,4 @@ require 'ConnectionFun.php';
 
 $connect = require '/xampp/htdocs/LearnPhP/ModuliIAdministratorit/connect.php';
 
-$conn= Connection::Make($connect);
+$conn= Make($connect);
