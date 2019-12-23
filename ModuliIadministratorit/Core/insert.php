@@ -15,7 +15,7 @@ elseif (isset($_POST['submitA'])) {
 	$name = mysqli_real_escape_string($conn,$_POST['name']);
 	$password = mysqli_real_escape_string($conn,$_POST['password']);
 	if (strlen($password) < 6) {
-		trigger_error("Madhesia e passwordit duhet te jete me e madhe se 6 karaktere");
+		trigger_error("Madhesia e passwordit duhet te jete me e madhe se 6 karaktere", E_USER_NOTICE );
 		header('Refresh: 10; URL=../admin.php');
 
 		?>

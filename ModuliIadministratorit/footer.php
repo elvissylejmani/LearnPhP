@@ -343,3 +343,21 @@
 					Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
 				</div>
 			</div>
+			<ul>
+				<li>	
+				https://www.activelava.net/storage/photos/shares/php-illustration.png
+
+				</li>
+				<li>
+				https://i.ytimg.com/vi/wCZ5TJCBWMg/maxresdefault.jpg
+				</li>
+				<li>
+				http://freecodecamp.com/
+				</li>
+				<li>
+				https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ
+				</li>
+				<li>
+				https://www.udemy.com/course/learn-object-oriented-php-by-building-a-complete-website/
+				</li>
+			</ul>
