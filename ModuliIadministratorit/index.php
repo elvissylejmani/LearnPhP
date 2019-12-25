@@ -1,8 +1,5 @@
 			<?php require 'header.php';
-			
-			
-			
-			
+			echo '<h1 style="font-size: 2em"> Pershendetje ' . $_SESSION['username'] . '</h1>';
 			?>
 			<!-- /Header -->
 			
@@ -12,12 +9,14 @@
 						<div class="3u">
 							<section id="sidebar1">
 								<header>
-								<?php 
+								<?php
+								
 								mysqli_free_result($result);  
 								mysqli_next_result($conn);
 									$result = mysqli_query($conn,"CALL sidebar_select()");
 									$row=mysqli_fetch_array($result, MYSQLI_ASSOC);
 									extract($row);
+
 								?>
 									<h2><?= $Sidebar_Title ?></h2>
 									
